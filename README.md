@@ -17,3 +17,7 @@ To run a solver on an instance :
 $ python main.py --agent=(agent-name).py --infile=./instances/(instance-name).txt
 ```
 
+## Visualization
+
+Here is a visualization of a partial solution for the complete Eternity-II puzzle (not the main focus of this project)
+![Visualization of a partial solution for the complete Eternity-II puzzle](img/eternity-complet.png)
