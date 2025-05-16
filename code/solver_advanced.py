@@ -32,7 +32,7 @@ TABU_LENGTH = 10
 TABU_RATIO = 0.1
 
 # Main Algo
-K = 1000 # Nombre de greedy dans la phase 1
+K = 500 # Nombre de greedy dans la phase 1
 M = 3 # Nombre d'iterration sans nouveau meilleur solver avant de changer les ratios
 
 CONFLICT_RATIO = 0.8 # Ratio des pièces avec conflits retirés entre chaque essai
@@ -132,7 +132,7 @@ def solve_advanced(puzzle : EternityPuzzle):
             unconflict_ratio += 0.05
         
 
-    print(best_solvers)
+    # print(best_solvers)
     # Retour de la solution
     solver = sorted(best_solvers, key=lambda x: x[1])[0][0]
     s = solver.format()
@@ -173,7 +173,7 @@ def best_of_K_greedy(puzzle: EternityPuzzle, K, curr_solver):
     best_value = np.inf
     best_solver = curr_solver
     
-    for _ in range(K):
+    for i in range(K):
         # On part du solver courant
         solver = Solver(puzzle)
         solver.board = copy.deepcopy(curr_solver.board)
@@ -205,7 +205,7 @@ class Solver:
         self.n = puzzle.board_size
         self.size = self.n ** 2
         self.startTime = t.time()
-        self.T = 20
+        self.T = 3600
         
         # Ensembles de pièces
         self.pieces = puzzle.piece_list
